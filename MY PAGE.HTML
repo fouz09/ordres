@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+<link rel="stylesheet" href="styles.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة طلبات قرطاسية</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>طلبات قرطاسية</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#orders">الطلبات</a></li>
+                <li><a href="#new-request">إنشاء طلب جديد</a></li>
+            </ul>
+        </nav>
+        <main>
+		<div class="rating-container">
+    <span class="star" data-rating="1">&#9733;</span>
+    <span class="star" data-rating="2">&#9733;</span>
+    <span class="star" data-rating="3">&#9733;</span>
+    <span class="star" data-rating="4">&#9733;</span>
+    <span class="star" data-rating="5">&#9733;</span>
+</div>
+
+            <section id="home">
+                <h2>مرحبًا بك في قرطاسية خالد</h2>
+                
+            </section>
+            <section id="orders">
+                <h2>الطلبات</h2>
+                <div class="order-list">
+                    <!-- الطلبات ستظهر هنا -->
+                </div>
+            </section>
+            <section id="new-request">
+                <h2>إنشاء طلب جديد</h2>
+                <form id="request-form">
+                    <div class="form-group">
+                        <label for="name">الاسم:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="request">الطلب المرغوب:</label>
+                        <textarea id="request" name="request" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">إرسال الطلب</button>
+                </form>
+            </section>
+        </main>
+    </div>
+	<script>
+    const stars = document.querySelectorAll('.star');
+
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            const rating = star.getAttribute('data-rating');
+
+            // إزالة التحديد من جميع النجوم
+            stars.forEach(s => s.classList.remove('selected'));
+
+            // تحديد النجوم حسب التقييم
+            for (let i = 0; i < rating; i++) {
+                stars[i].classList.add('selected');
+            }
+
+            // عرض الرسالة المنبثقة المناسبة
+            switch (rating) {
+                case '1':
+                    alert('سوف نطور من الموقع لاجلك!');
+                    break;
+                case '2':
+                    alert('نرجو ان تشاركنا رأيك لنعمل على تحسينه!');
+                    break;
+                case '3':
+                    alert('نشكرك لقييمنا');
+                    break;
+                case '4':
+                    alert('رائع! نشكرك');
+                    break;
+                case '5':
+                    alert('نشكرك و نرجو ان تكرر الزيارة!');
+                    break;
+            }
+        });
+    });
+</script>
+
+
+</body>
+</html>
